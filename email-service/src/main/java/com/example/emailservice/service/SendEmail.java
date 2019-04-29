@@ -23,10 +23,11 @@ public class SendEmail {
 
     /**
      * 发送邮件
-     *  @param title 邮件标题
+     *
+     * @param title 邮件标题
      * @param url   收件人邮箱
      * @param email 邮件内容
-     * @return  返回执行结果
+     * @return 返回执行结果
      */
     @Async
     public CompletableFuture<Map> sendMail(String title, String url, String email) {

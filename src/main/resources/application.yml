@@ -11,3 +11,15 @@ spring:
         health-check-interval: 5s
         ip-address: 127.0.0.1
         prefer-ip-address: true
+
+
+#Fegin 连接超时
+
+#ribbon.ReadTimeout=60000
+#ribbon.ConnectTimeout=60000
+#ribbon.MaxAutoRetries=0
+#ribbon.MaxAutoRetriesNextServer=1
+
+feign:
+  hystrix:
+    enabled: false
