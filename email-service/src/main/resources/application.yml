@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  mail:
+    host: smtp.exmail.qq.com
+    username: 10001011@oumingyuan.club
+    password: Omy15609681930,,
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+            required: false
+
+  application:
+    name: email-service
+
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        health-check-path: /health
+        health-check-interval: 5s
+        ip-address: 127.0.0.1
+        prefer-ip-address: true
