@@ -19,5 +19,5 @@ public interface EmailServiceClient {
 
     //    @PostMapping("/send")
     @PostMapping(value = "/send",consumes = MediaType.APPLICATION_JSON_VALUE)
-    void sendEmail(@RequestBody Map<String, String> map);
+    String sendEmail(@RequestBody Map<String, String> map);
 }

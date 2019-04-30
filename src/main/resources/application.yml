@@ -21,5 +21,31 @@ spring:
 #ribbon.MaxAutoRetriesNextServer=1
 
 feign:
-  hystrix:
-    enabled: false
+  client:
+    config:
+      remote-service:           #服务名，填写default为所有服务
+        connectTimeout: 10000
+        readTimeout: 12000
+
+
+
+
+hystrix:
+
+
+  metrics:
+    polling-interval-ms: 5000
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 
 @RestController
 public class EmailController {
@@ -19,13 +18,18 @@ public class EmailController {
     SendEmail sendEmail;
 
     @PostMapping("/send")
-    public void sendEmail(@RequestBody Map<String, String> map) {
+    public String sendEmail(@RequestBody Map<String, String> map) {
 
 //        System.out.println("email: " + email);
 //        System.out.println("information: " + information);
         System.out.println("服务端：" + map);
 
-        sendEmail.sendMail("Test", map.get("email"), map.get("information"));
+        new Thread(() -> sendEmail.sendMail(
+                "Test", map.get("email"), map.get("information")),
+                "send email thread").start();
+
+        return "system have send an email.";
+
 
     }
 }

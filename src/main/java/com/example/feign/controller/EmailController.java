@@ -17,10 +17,10 @@ public class EmailController {
 
 
     @PostMapping(value = "/send")
-    public void sendEmail(@RequestBody Map<String,String> map) {
+    public String sendEmail(@RequestBody Map<String, String> map) {
 
         System.out.println(map);
 
-        emailServiceClient.sendEmail(map);
+        return emailServiceClient.sendEmail(map);
     }
 }
