@@ -10,6 +10,7 @@ server:
 
 spring:
   mail:
+    # 免费邮是smtp.qq.com和pop.qq.com，也是采用SSL加密，端口号995和465。
     host: smtp.exmail.qq.com
     username: 10001011@oumingyuan.club
     password: Omy15609681930,,
@@ -20,6 +21,8 @@ spring:
           starttls:
             enable: false
             required: false
+          ssl:
+            enable: true
 
   application:
     name: email-service
