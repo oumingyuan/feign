@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        table {
+            margin: 3% auto;
+        }
+
+        #email {
+            width: 280px;
+        }
+
+        #information {
+            width: 280px;
+            height: 100px;
+        }
+
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#sendEmail").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/send",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(getJsonData()),
+                    dataType: "json",
+                    success: function (message) {
+                        console.log(message);
+                        $("#span").html(message.result);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest);
+                        console.log(textStatus);
+                        console.log(errorThrown)
+                    }
+                });
+            })
+        });
+        function getJsonData() {
+            return {
+                "email": $("#email").val(),
+                "information": $("#information").val()
+            };
+        }
+
+    </script>
+</head>
+<body>
+
+
+<table>
+    <caption><h2>发送邮件</h2></caption>
+    <tr>
+        <td>
+            <label for="email">email:</label>
+        </td>
+        <td>
+            <input id="email" type="email" value="oumingyuan@live.com">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="information">information:</label>
+        </td>
+        <td>
+            <textarea id="information">hello world</textarea>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="button" value="send" id="sendEmail" onclick="">
+        </td>
+        <td>
+            <span id="span"></span>
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
